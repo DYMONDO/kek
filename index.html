@@ -1,0 +1,46 @@
+using System;
+
+namespace C_Sharp_massiv_git
+{
+    class Program
+    {
+    static void Main(string[] args)
+        {
+            Random rnd = new Random();
+           
+            
+            int Mono = 1;
+            Console.Write("Введите размер массива: ");
+            int number_N = int.Parse(Console.ReadLine());
+            int[] mass = new int[number_N];
+            for (int i = 0; i < number_N; i++)
+            {
+                mass[i] = rnd.Next(100);
+
+
+                if (i > 1)
+                    if ((mass[i] >= mass[i - 1]) && (mass[i - 1] < mass[i - 2]))
+                    {
+                        Mono++;
+                    }
+                    else
+                    {
+                        if ((mass[i] <= mass[i - 1]) && (mass[i - 1] > mass[i - 2]))
+                            Mono++;
+                    }
+            }
+            Console.WriteLine("Массив: ");
+            for (int i = 0; i < number_N; i++)
+            {
+                Console.WriteLine(mass[i]);
+
+            }
+            Console.Write("Количество промежутков монотонности: ") ;
+            Console.Write(Mono) ;
+        }
+
+
+       
+        
+    }
+}
